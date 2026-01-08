@@ -1,7 +1,7 @@
 #!/bin/bash
 
-VERSION=$(curl -s https://api.github.com/repos/MoneroOcean/xmrig-proxy/releases/latest | grep tag_name | cut -d : -f 2,3 | tr -d ' v\",')
-URL=https://github.com/MoneroOcean/xmrig-proxy/releases/download/v${VERSION}/xmrig-proxy-${VERSION}-linux-static-x64.tar.gz
+VERSION=$(curl -s https://api.github.com/repos/MoneroOcean/xmrig-proxy/releases/latest | grep tag_name | cut -d : -f 2,3 | tr -d ' \",')
+URL=https://github.com/MoneroOcean/xmrig-proxy/releases/download/${VERSION}/xmrig-proxy-${VERSION}-lin64-compat.tar.gz
 curl -L -s ${URL} --output xmrig-proxy.tar.gz
-tar xvpf xmrig-proxy.tar.gz xmrig-proxy-$VERSION/xmrig-proxy --strip-components=1 -C .
+tar xvpf xmrig-proxy.tar.gz xmrig-proxy
 rm -rf xmrig-proxy.tar.gz
